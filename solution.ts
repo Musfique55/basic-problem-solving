@@ -14,10 +14,14 @@ const getLength = <T>(val: string | T[]) : number => {
   return typeof val === "string" || Array.isArray(val) ? val.length : 0;
 };
 
-console.log(getLength('typescript'));
-console.log(getLength([10, 20, 30, 40]));
 
-class Person {
+interface person {
+    name : string,
+    age : number,
+    getDetails() : string
+}
+
+class Person implements person {
   name: string;
   age: number;
   constructor(name: string, age: number) {
