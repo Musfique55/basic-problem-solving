@@ -100,7 +100,9 @@ interface product {
 }
 
 const calculateTotalPrice = (products : product[]) : number => {
-    return products.reduce((prev,curr) => prev + (curr.price * curr.quantity) ,0);
+    return products.reduce((prev,curr) =>  curr?.discount ? prev +(curr.price * curr.quantity) - (((curr.price * curr.quantity) * curr.discount / 100)):prev + (curr.price * curr.quantity) ,0);
 }
+
+
 
 
