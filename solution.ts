@@ -75,22 +75,27 @@ const getUniqueValues = (arr1: arr, arr2: arr): arr => {
   const visited = {} as { [key: string]: boolean };
 
   const uniqueValues: arr = [];
+  let k = 0;
 
   for (const num of arr1) {
     if (!visited[num]) {
-      uniqueValues.push(num);
+      uniqueValues[k] = num;
       visited[num] = true;
+      k++;
     }
   }
   for (const num of arr2) {
     if (!visited[num]) {
-      uniqueValues.push(num);
+      uniqueValues[k] = num;
       visited[num] = true;
+      k++;
     }
   }
 
   return uniqueValues;
 };
+
+
 
 interface product {
   name: string;
